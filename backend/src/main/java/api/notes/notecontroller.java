@@ -46,8 +46,13 @@ class NoteController{
   @DeleteMapping(API_DICT + "/{id}")
   void deleteNote(@PathVariable Long id){
     //finds id and deletes it
-    repo.deleteById(id);
-    System.out.println("Note " + id + " was deleted.\n");
+      if(repo.findById(id) == null) {
+          System.out.println("Note " + id + " does not exist.\n");
+      }
+      else{
+          repo.deleteById(id);
+          System.out.println("Note " + id + " was deleted.\n");
+      }
   }
 
   //Get existing note (single)
@@ -67,10 +72,10 @@ class NoteController{
   //Get all existing notes w/ queried term and saves to repo
   @RequestMapping(value="API_DICT", method= RequestMethod.GET)
   //val = requested Query ex. "milk"
-  public List<Note> findByBody(@RequestParam("val") String val) {
+  public List<Note> findByBody(@RequestParam("query") String query) {
     List<Note> notes = repo.findAll();
     //prints list
-    System.out.println("Note with query = " + val + ".\n");
+    System.out.println("Note with query = " + query + ".\n");
     System.out.println(notes.toString() + "\n");
     //stores to repo
     return repo.findAll();

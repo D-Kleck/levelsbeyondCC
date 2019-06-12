@@ -1,2 +1,5 @@
-api/notes/NoNoteFoundException.class
+api/notes/NoteRepository.class
 api/notes/NotesApp.class
+api/notes/Note.class
+api/notes/NoNoteFoundException.class
+api/notes/NoteController.class
