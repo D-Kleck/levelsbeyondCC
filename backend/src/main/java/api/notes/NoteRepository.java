@@ -1,4 +1,4 @@
-package main.java.api.notes;
+package api.notes;
 
 import java.util.List;
 import java.util.Optional;

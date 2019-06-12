@@ -1,5 +1,7 @@
 package api.notes;
 
+//Error case for when
+
 public class NoNoteFoundException extends RuntimeException {
   long id;
 
